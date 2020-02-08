@@ -1,0 +1,14 @@
+{
+  "name": "trivia-main",
+  "version": "0.1.0",
+  "author": "Matias Benedetto <matias.benedetto@gmail.com>",
+  "description": "Shared code for the trivia game",
+  "main": "build/index.js",
+  "scripts": {
+    "watch": "tsc -b -w"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
+}
