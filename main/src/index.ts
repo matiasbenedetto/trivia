@@ -1,7 +1,12 @@
-import apiClient from './api';
-import * as types from './types';
+import * as storeTypes from './store/types';
 
-export {
-  apiClient,
-  types,
-};
+export { default as apiClient } from './api';
+export { default as store } from './store';
+export { default as AppState } from './store';
+// export { default as modules } from './modules';
+
+// Connected Components
+export { default as ConnectedHome, HomeProps } from './modules/ConnectedHome';
+export { default as ConnectedUserInput, UserInputProps } from './modules/ConnectedUserInput';
+
+export { storeTypes };
