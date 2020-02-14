@@ -1,8 +1,8 @@
 import { BaseAction, actionTypes } from "../../actions/types";
-import { AppState } from '../../types';
-import { Trivia } from "../../../api/types";
+import { Trivia, TriviaSettings } from "../../../api/types";
 
 const initialState = {
+  loading: false,
   difficulty: '',
   type: '',
   questions: [],
@@ -11,18 +11,32 @@ const initialState = {
 };
 
 export function triviaReducer (
-  state: Trivia= initialState,
+  trivia: Trivia= initialState,
   { type, payload }: BaseAction
 ): Trivia {
   switch(type) {
+
+    case actionTypes.TRIVIA_FETCH_REQUESTED:
+      return {
+        ...trivia,
+        loading: true,
+      }
     
     case actionTypes.TRIVIA_FETCH_SUCCEEDED:
       return {
-        ...state,
-        ...payload,
+        ...trivia,
+        ...payload.settings,
+        questions: [ ...payload.questions ],
+        loading: false,
+      }
+    
+    case actionTypes.TRIVIA_FETCH_FAILED:
+      return {
+        ...trivia,
+        loading: false,
       }
 
     default:
-      return state;
+      return trivia;
   }
 }

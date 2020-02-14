@@ -3,17 +3,20 @@ import { actionTypes } from "../types";
 import { TriviaSettings, getTriviaApiResponse } from '../../../api/types';
 
 
-export function triviaFetchSucceeded (settings: TriviaSettings): TriviaFetchRequested {
+export function triviaFetchRequested (settings: TriviaSettings): TriviaFetchRequested {
   return {
     type: actionTypes.TRIVIA_FETCH_REQUESTED,
     payload: settings,
   }
 }
 
-export function triviaFetchRequested (data: getTriviaApiResponse): TriviaFetchSucceeded {
+export function triviaFetchSucceeded (settings: TriviaSettings, questions: getTriviaApiResponse): TriviaFetchSucceeded {
   return {
     type: actionTypes.TRIVIA_FETCH_SUCCEEDED,
-    payload: data,
+    payload: {
+      settings,
+      questions,
+    },
   }
 } 
 

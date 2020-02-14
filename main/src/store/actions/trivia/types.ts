@@ -9,7 +9,10 @@ export interface TriviaFetchRequested extends BaseAction {
 
 export interface TriviaFetchSucceeded extends BaseAction {
   type: actionTypes.TRIVIA_FETCH_SUCCEEDED;
-  payload: getTriviaApiResponse;
+  payload: {
+    settings: TriviaSettings, 
+    questions: getTriviaApiResponse
+  }
 }
 
 export interface TriviaFetchFailed extends BaseAction {

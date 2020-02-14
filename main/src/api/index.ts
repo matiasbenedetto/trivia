@@ -1,6 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
-
-import { TriviaDifficulty, TriviaType, TriviaQuestionApiResponse, getTriviaApiResponse } from './types';
+import { TriviaDifficulty, TriviaType, TriviaQuestionApiResponse, getTriviaApiResponse, TriviaSettings } from './types';
 
 class Api {
   private client: AxiosInstance;
@@ -12,8 +11,8 @@ class Api {
       });
   }
 
-  async getTrivia(amount: number, difficulty: TriviaDifficulty, type: TriviaType) {
-      return this.client.get(`?amount=${amount}&difficulty=${difficulty}&type=${type}`);
+  getTrivia = async ({amount, difficulty, type}: TriviaSettings) => {
+      return await this.client.get(`?amount=${amount}&difficulty=${difficulty}&type=${type}`);
   }
 }
 

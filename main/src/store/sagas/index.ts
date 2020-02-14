@@ -6,10 +6,12 @@ import apiClient from '../../api';
 
 
 function* triviaFetch(action: BaseAction) {
+   const { payload: settings } = action;
    try {
-      const { data } = yield call(apiClient.getTrivia, 10, 'hard', 'boolean');
-      yield put(triviaFetchRequested(data));
+      const { data : { results: questions } } = yield call(apiClient.getTrivia, settings);
+      yield put(triviaFetchSucceeded(settings, questions));
    } catch (error) {
+      console.log(error);
       yield put(triviaFetchFailed(error));
    }
 }

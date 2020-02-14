@@ -19,6 +19,7 @@ export interface TriviaQuestion {
 }
 
 export interface Trivia {
+  loading: boolean;
   difficulty: string;
   type: string;
   questions: TriviaQuestion[];
