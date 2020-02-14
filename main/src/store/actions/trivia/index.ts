@@ -1,6 +1,6 @@
 import { TriviaFetchRequested, TriviaFetchSucceeded, TriviaFetchFailed } from './types';
 import { actionTypes } from "../types";
-import { TriviaSettings, getTriviaApiResponse } from '../../../api/types';
+import { TriviaSettings, TriviaQuestion } from '../../../api/types';
 
 
 export function triviaFetchRequested (settings: TriviaSettings): TriviaFetchRequested {
@@ -10,7 +10,7 @@ export function triviaFetchRequested (settings: TriviaSettings): TriviaFetchRequ
   }
 }
 
-export function triviaFetchSucceeded (settings: TriviaSettings, questions: getTriviaApiResponse): TriviaFetchSucceeded {
+export function triviaFetchSucceeded (settings: TriviaSettings, questions: TriviaQuestion[]): TriviaFetchSucceeded {
   return {
     type: actionTypes.TRIVIA_FETCH_SUCCEEDED,
     payload: {

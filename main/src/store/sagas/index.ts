@@ -3,12 +3,13 @@ import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
 import { triviaFetchRequested, triviaFetchSucceeded, triviaFetchFailed } from '../actions/trivia';
 import { BaseAction, actionTypes } from "../actions/types";
 import apiClient from '../../api'; 
+import { TriviaFetchRequested } from '../actions/trivia/types';
 
 
-function* triviaFetch(action: BaseAction) {
+function* triviaFetch(action: TriviaFetchRequested) {
    const { payload: settings } = action;
    try {
-      const { data : { results: questions } } = yield call(apiClient.getTrivia, settings);
+      const questions = yield apiClient.getTrivia(settings);
       yield put(triviaFetchSucceeded(settings, questions));
    } catch (error) {
       console.log(error);

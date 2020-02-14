@@ -1,5 +1,6 @@
 import axios, { AxiosInstance } from 'axios';
 import { TriviaDifficulty, TriviaType, TriviaQuestionApiResponse, getTriviaApiResponse, TriviaSettings } from './types';
+import { normalizeQuestions } from './utils';
 
 class Api {
   private client: AxiosInstance;
@@ -12,7 +13,8 @@ class Api {
   }
 
   getTrivia = async ({amount, difficulty, type}: TriviaSettings) => {
-      return await this.client.get(`?amount=${amount}&difficulty=${difficulty}&type=${type}`);
+      const { data } = await this.client.get(`?amount=${amount}&difficulty=${difficulty}&type=${type}`);
+      return normalizeQuestions(data);
   }
 }
 
