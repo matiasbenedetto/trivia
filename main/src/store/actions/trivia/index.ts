@@ -1,6 +1,6 @@
-import { TriviaFetchRequested, TriviaFetchSucceeded, TriviaFetchFailed } from './types';
+import { TriviaFetchRequested, TriviaFetchSucceeded, TriviaFetchFailed, TriviaQuestionAnswer } from './types';
 import { actionTypes } from "../types";
-import { TriviaSettings, TriviaQuestion } from '../../../api/types';
+import { TriviaSettings, TriviaQuestion } from "../../types";
 
 
 export function triviaFetchRequested (settings: TriviaSettings): TriviaFetchRequested {
@@ -13,10 +13,7 @@ export function triviaFetchRequested (settings: TriviaSettings): TriviaFetchRequ
 export function triviaFetchSucceeded (settings: TriviaSettings, questions: TriviaQuestion[]): TriviaFetchSucceeded {
   return {
     type: actionTypes.TRIVIA_FETCH_SUCCEEDED,
-    payload: {
-      settings,
-      questions,
-    },
+    payload: { settings, questions },
   }
 } 
 
@@ -27,3 +24,9 @@ export function triviaFetchFailed (error: string): TriviaFetchFailed {
   }
 }
 
+export function triviaQuestionAnswer (questionId:number, answer: string) {
+  return {
+    type: actionTypes.TRIVIA_QUESTION_ANSWER,
+    payload: { questionId, answer }
+  }
+}

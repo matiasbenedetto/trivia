@@ -1,5 +1,6 @@
 import axios, { AxiosInstance } from 'axios';
-import { TriviaDifficulty, TriviaType, TriviaQuestionApiResponse, getTriviaApiResponse, TriviaSettings } from './types';
+import { TriviaQuestionApiResponse, getTriviaApiResponse } from './types';
+import { TriviaDifficulty, TriviaType, TriviaSettings } from "../store/types";
 import { normalizeQuestions } from './utils';
 
 class Api {

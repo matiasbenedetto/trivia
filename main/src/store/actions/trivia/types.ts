@@ -1,4 +1,4 @@
-import { TriviaSettings, TriviaQuestion } from '../../../api/types';
+import { TriviaSettings, TriviaQuestion } from "../../types";
 import { BaseAction, actionTypes } from '../types';
 
 
@@ -20,4 +20,12 @@ export interface TriviaFetchFailed extends BaseAction {
   payload: string;
 }
 
-export type TriviaActions = TriviaFetchRequested | TriviaFetchFailed | TriviaFetchSucceeded;
+export interface TriviaQuestionAnswer extends BaseAction {
+  type: actionTypes.TRIVIA_QUESTION_ANSWER;
+  payload: {
+    questionId: number,
+    answer: string,
+  }
+}
+
+export type TriviaActions = TriviaFetchRequested | TriviaFetchFailed | TriviaFetchSucceeded | TriviaQuestionAnswer;

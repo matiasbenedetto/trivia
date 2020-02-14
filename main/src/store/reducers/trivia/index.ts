@@ -1,5 +1,5 @@
 import { BaseAction, actionTypes } from "../../actions/types";
-import { Trivia } from "../../../api/types";
+import { Trivia } from "../../types";
 import { TriviaActions } from '../../actions/trivia/types';
 
 
@@ -37,6 +37,15 @@ export function triviaReducer (
         ...trivia,
         loading: false,
       }
+
+    case actionTypes.TRIVIA_QUESTION_ANSWER:
+      const { questionId, answer } = action.payload;
+      const newQuestions = [...trivia.questions];
+      newQuestions[questionId]= {
+        ...newQuestions[questionId],
+        userAnswer: answer,
+      }
+      return { ...trivia, questions: [...newQuestions] }
 
     default:
       return trivia;

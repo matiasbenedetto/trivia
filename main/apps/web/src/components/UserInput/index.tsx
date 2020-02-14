@@ -2,7 +2,7 @@ import React from 'react';
 import { ConnectedUserInput, UserInputProps } from 'trivia-main';
 
 function UserInput({username, setUsername} :UserInputProps) {
-  const handleUsernameChange = (event: any) => {
+  const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value);
   }
 

@@ -10,7 +10,7 @@ export { default as AppState } from './store';
 // Connected Components
 export { default as ConnectedHome, HomeProps } from './modules/ConnectedHome';
 export { default as ConnectedUserInput, UserInputProps } from './modules/ConnectedUserInput';
-export { default as ConnectedNewTriviaButton, NewTriviaButtonProps } from './modules/ConnectedNewTriviaButton';
+export { default as ConnectedTrivia, TriviaProps } from './modules/ConnectedTrivia';
 
 // Constants
 export { constants };

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ConnectedHome, HomeProps } from 'trivia-main';
 import UserInput from '../../components/UserInput';
-import NewTriviaButton from '../../components/NewTriviaButton';
+import { Link } from 'react-router-dom';
 
 
 function Home({ user }: HomeProps) {
@@ -15,7 +15,9 @@ function Home({ user }: HomeProps) {
       <h2>Yo will be presented with 10 True of False questions.</h2>
       <h2>Can you score 100%?</h2>
 
-      <NewTriviaButton text="Begin!"/>
+      <Link to="/trivia/1">
+        <button>Begin!</button>
+      </Link>
     </div>
   )
 }

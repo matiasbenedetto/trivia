@@ -1,4 +1,7 @@
-import { getTriviaApiResponse, TriviaQuestion, TriviaQuestionApiResponse } from "./types";
+import he from 'he';
+
+import { getTriviaApiResponse, TriviaQuestionApiResponse } from "./types";
+import { TriviaQuestion } from "../store/types";
 
 
 export function normalizeQuestions (apiResponse: getTriviaApiResponse): TriviaQuestion[] {
@@ -7,7 +10,7 @@ export function normalizeQuestions (apiResponse: getTriviaApiResponse): TriviaQu
       category: item.category,
       type: item.type,
       difficulty: item.difficulty,
-      question: item.question,
+      text: he.decode(item.question),
       correctAswer: item.correct_aswer,
       incorrectAnswers: item.incorrect_answers
     }
