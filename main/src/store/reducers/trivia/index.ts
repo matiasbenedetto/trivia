@@ -1,6 +1,6 @@
 import { BaseAction, actionTypes } from "../../actions/types";
 import { Trivia } from "../../types";
-import { TriviaActions } from '../../actions/trivia/types';
+import { TriviaAction } from '../../actions/trivia/types';
 
 
 const initialState = {
@@ -14,7 +14,7 @@ const initialState = {
 
 export function triviaReducer (
   trivia: Trivia= initialState,
-  action: TriviaActions
+  action: TriviaAction
 ): Trivia {
   switch(action.type) {
     case actionTypes.TRIVIA_FETCH_REQUESTED:

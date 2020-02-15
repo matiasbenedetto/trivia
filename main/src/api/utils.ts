@@ -11,7 +11,7 @@ export function normalizeQuestions (apiResponse: getTriviaApiResponse): TriviaQu
       type: item.type,
       difficulty: item.difficulty,
       text: he.decode(item.question),
-      correctAswer: item.correct_aswer,
+      correctAswer: item.correct_answer,
       incorrectAnswers: item.incorrect_answers
     }
   ))

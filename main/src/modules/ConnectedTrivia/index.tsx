@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { AppState, TriviaSettings } from '../../store/types';
 import { Trivia } from "../../store/types";
 import { triviaQuestionAnswer, triviaFetchRequested } from '../../store/actions/trivia';
-import { TriviaActions } from '../../store/actions/trivia/types';
+import { TriviaAction } from '../../store/actions/trivia/types';
 import { BaseAction } from '../../store/actions/types';
 
 export interface TriviaProps {

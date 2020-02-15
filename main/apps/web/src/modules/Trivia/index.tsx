@@ -1,8 +1,7 @@
 import React from 'react';
 import { useParams, useHistory } from "react-router-dom";
-import { constants } from 'trivia-main';
+import { constants, ConnectedTrivia, TriviaProps  } from 'trivia-main';
 
-import { ConnectedTrivia, TriviaProps } from 'trivia-main';
 import Question from '../../components/Question';
 
 
@@ -10,19 +9,20 @@ function Trivia({ trivia, triviaQuestionAnswer, triviaFetchRequested }: TriviaPr
   const { questionId } = useParams();
   const history = useHistory();
   const { loading, questions } = trivia;
-  const id: number = Number(questionId) || 1;
+  const id: number = Number(questionId) || 0;
 
   const handleRequestNewTrivia = () => {
     triviaFetchRequested(constants.TRIVIA_DEFAULT_SETTINGS);
   }
 
   const onAnswerQuestion = (id: number, answer: string) => {
-    triviaQuestionAnswer(id, answer);
     const nextId = id + 1;
+    triviaQuestionAnswer(id, answer);
+    console.log(id, nextId);
     if (nextId < questions.length) {
       history.push(`/trivia/${nextId}/`);
     } else {
-      history.push('trivia/results');
+      history.push('/trivia/results');
     }
   }
 

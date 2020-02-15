@@ -5,7 +5,7 @@ export interface TriviaQuestionApiResponse {
   type: TriviaType;
   difficulty: TriviaDifficulty;
   question: string;
-  correct_aswer: string;
+  correct_answer: string;
   incorrect_answers: string[];
 }
 

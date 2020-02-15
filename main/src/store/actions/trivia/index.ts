@@ -24,7 +24,7 @@ export function triviaFetchFailed (error: string): TriviaFetchFailed {
   }
 }
 
-export function triviaQuestionAnswer (questionId:number, answer: string) {
+export function triviaQuestionAnswer (questionId:number, answer: string): TriviaQuestionAnswer {
   return {
     type: actionTypes.TRIVIA_QUESTION_ANSWER,
     payload: { questionId, answer }

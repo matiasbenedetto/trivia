@@ -1,6 +1,7 @@
-import { BaseAction, actionTypes } from "../../actions/types";
+import { actionTypes } from "../../actions/types";
 import { UserState } from '../../types';
 import { operate } from './utils';
+import { UserAction } from '../../actions/user/types';
 
 const initialState = {
     username: '',
@@ -9,19 +10,20 @@ const initialState = {
 
 export const userReducer = (
   state: UserState = initialState,
-  { type, payload }: BaseAction
+  action: UserAction,
 ) => {
-  switch(type) {
+  switch(action.type) {
     case actionTypes.USER_USERNAME_SET:
       return {
         ...state,
-        username: payload,
+        username: action.payload,
       }
     
     case actionTypes.USER_SCORE_SET:
+      const { operation, points } = action.payload; 
       return {
         ...state,
-        score: operate(state.score, payload.operator, payload.points),
+        score: operate(state.score, operation, points),
       }
       
     default:

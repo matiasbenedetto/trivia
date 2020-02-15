@@ -23,3 +23,6 @@ Stack: React and React Native
 - Adding shorthands for paths
 - Add ESLint
 - Cast payload in reducers
+
+### Web: 
+- Implement redirect if a question is not found

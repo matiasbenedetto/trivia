@@ -16,3 +16,5 @@ export interface UserScoreSet extends BaseAction {
   type: actionTypes.USER_SCORE_SET;
   payload: ScoreOperation;
 }
+
+export type UserAction = UserUsernameSet | UserScoreSet;

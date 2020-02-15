@@ -28,4 +28,4 @@ export interface TriviaQuestionAnswer extends BaseAction {
   }
 }
 
-export type TriviaActions = TriviaFetchRequested | TriviaFetchFailed | TriviaFetchSucceeded | TriviaQuestionAnswer;
+export type TriviaAction = TriviaFetchRequested | TriviaFetchFailed | TriviaFetchSucceeded | TriviaQuestionAnswer;
