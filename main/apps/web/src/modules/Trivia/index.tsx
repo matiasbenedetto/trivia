@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Redirect } from "react-router-dom";
 import { constants, ConnectedTrivia, TriviaProps  } from 'trivia-main';
 import Question from '../../components/Question';
 
@@ -32,6 +32,9 @@ function Trivia({ trivia, triviaQuestionAnswer, triviaFetchRequested, fetchNew }
     return (<div><h1>Fetching New Trivia ...</h1></div>);
   }else {
     const selectedQuestion = trivia.questions[id];
+    if (!selectedQuestion) {
+      return (<Redirect to={'/'}/>);
+    }
     return(
       <div className="trivia">
         <Question
