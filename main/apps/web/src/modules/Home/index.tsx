@@ -4,10 +4,12 @@ import { ConnectedHome, HomeProps } from 'trivia-main';
 import UserInput from '../../components/UserInput';
 import { Link } from 'react-router-dom';
 
+import './home.scss';
+
 
 function Home({ user }: HomeProps) {
   return(
-    <div>
+    <div className="home">
       <h1>Welcome {user.username} to the trivia challenge!</h1>
       <UserInput />
 

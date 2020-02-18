@@ -1,0 +1,14 @@
+.atribution-bar{
+  border-top: 1px solid black;
+  display: grid;
+  grid-template-columns: min-content min-content 1fr;
+  p{
+    margin: 0;
+    padding: 1rem;
+    border-inline-end: 1px solid black;
+    white-space: nowrap;
+    &:last-child{
+      border-inline-end: none;
+    }
+  }
+}

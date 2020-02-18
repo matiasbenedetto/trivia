@@ -1,8 +1,9 @@
 import React from 'react';
 import { useParams, useHistory } from "react-router-dom";
 import { constants, ConnectedTrivia, TriviaProps  } from 'trivia-main';
-
 import Question from '../../components/Question';
+
+import './trivia.scss';
 
 
 function Trivia({ trivia, triviaQuestionAnswer, triviaFetchRequested }: TriviaProps) {
@@ -31,13 +32,13 @@ function Trivia({ trivia, triviaQuestionAnswer, triviaFetchRequested }: TriviaPr
   }
 
   if (loading){
-    return (<div><h1>Loading New Trivia ...</h1></div>);
+    return (<div><h1>Loading New Trivia ... </h1></div>);
   }
 
   if (questions.length) {
     const selectedQuestion = trivia.questions[id];
     return(
-      <div>
+      <div className="trivia">
         <Question
           questionId={id}
           question={selectedQuestion}
@@ -47,7 +48,7 @@ function Trivia({ trivia, triviaQuestionAnswer, triviaFetchRequested }: TriviaPr
     )
   }
 
-  return (<div>Eroor</div>);
+  return (<div>Error</div>);
 }
 
 export default ConnectedTrivia(Trivia);

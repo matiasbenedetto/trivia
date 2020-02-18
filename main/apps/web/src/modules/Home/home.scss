@@ -1,0 +1,16 @@
+.home {
+  text-align: center;
+  max-width: 80vw;
+
+  button{
+    padding: 1rem;
+    background-color: orange;
+    text-transform: uppercase;
+    color: white;
+    display: inline-block;
+    margin-bottom: 1rem;
+    border: none;
+    font-weight: bolder;
+    cursor: pointer;
+  }
+}

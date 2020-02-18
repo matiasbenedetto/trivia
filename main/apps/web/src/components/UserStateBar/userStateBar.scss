@@ -1,0 +1,14 @@
+.user-state-bar{
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  border-bottom: 1px solid black;
+
+  div{
+    padding: 1rem;
+    white-space: nowrap;
+    &:first-child{
+      border-inline-end: 1px solid black;
+    }
+  }
+
+}

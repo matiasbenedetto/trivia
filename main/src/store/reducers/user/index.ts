@@ -9,24 +9,24 @@ const initialState = {
 }
 
 export const userReducer = (
-  state: UserState = initialState,
+  user: UserState = initialState,
   action: UserAction,
 ) => {
   switch(action.type) {
     case actionTypes.USER_USERNAME_SET:
       return {
-        ...state,
+        ...user,
         username: action.payload,
       }
     
     case actionTypes.USER_SCORE_SET:
       const { operation, points } = action.payload; 
       return {
-        ...state,
-        score: operate(state.score, operation, points),
+        ...user,
+        score: operate(user.score, operation, points),
       }
       
     default:
-      return initialState;
+      return user;
   }
 }

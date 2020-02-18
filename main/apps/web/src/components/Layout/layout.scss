@@ -1,0 +1,11 @@
+.main-layout {
+  display: grid;
+  grid-template-rows: min-content 4fr min-content;
+  min-height: 100vh;
+
+  main {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5rem;
+  }
+}
