@@ -5,3 +5,7 @@ export const TRIVIA_DEFAULT_SETTINGS: TriviaSettings = {
   difficulty: 'hard',
   type: 'boolean',
 };
+
+export default {
+  TRIVIA_DEFAULT_SETTINGS,
+}
