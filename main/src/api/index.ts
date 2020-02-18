@@ -15,9 +15,7 @@ class Api {
 
   getTrivia = async ({amount, difficulty, type}: TriviaSettings) => {
       const { data } = await this.client.get(`?amount=${amount}&difficulty=${difficulty}&type=${type}`);
-      const questions = normalizeQuestions(data);
-      console.log(questions);
-      return questions;
+      return normalizeQuestions(data);
   }
 }
 
