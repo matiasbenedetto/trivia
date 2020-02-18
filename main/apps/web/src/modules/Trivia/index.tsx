@@ -6,20 +6,19 @@ import Question from '../../components/Question';
 import './trivia.scss';
 
 
-function Trivia({ trivia, triviaQuestionAnswer, triviaFetchRequested }: TriviaProps) {
+function Trivia({ trivia, triviaQuestionAnswer, triviaFetchRequested, fetchNew }: TriviaProps) {
   const { questionId } = useParams();
   const history = useHistory();
   const { loading, questions } = trivia;
   const id: number = Number(questionId) || 0;
 
-  const handleRequestNewTrivia = () => {
-    triviaFetchRequested(constants.TRIVIA_DEFAULT_SETTINGS);
+  if (loading){
+    return (<div><h1>Loading New Trivia ... </h1></div>);
   }
 
   const onAnswerQuestion = (id: number, answer: string) => {
     const nextId = id + 1;
     triviaQuestionAnswer(id, answer);
-    console.log(id, nextId);
     if (nextId < questions.length) {
       history.push(`/trivia/${nextId}/`);
     } else {
@@ -27,15 +26,11 @@ function Trivia({ trivia, triviaQuestionAnswer, triviaFetchRequested }: TriviaPr
     }
   }
 
-  if (!loading && !questions.length) {
-    handleRequestNewTrivia();
-  }
-
-  if (loading){
-    return (<div><h1>Loading New Trivia ... </h1></div>);
-  }
-
-  if (questions.length) {
+  if (fetchNew) {
+    triviaFetchRequested(constants.TRIVIA_DEFAULT_SETTINGS);
+    history.push('/trivia/0');
+    return (<div><h1>Fetching New Trivia ...</h1></div>);
+  }else {
     const selectedQuestion = trivia.questions[id];
     return(
       <div className="trivia">
@@ -47,8 +42,6 @@ function Trivia({ trivia, triviaQuestionAnswer, triviaFetchRequested }: TriviaPr
       </div>
     )
   }
-
-  return (<div>Error</div>);
 }
 
 export default ConnectedTrivia(Trivia);

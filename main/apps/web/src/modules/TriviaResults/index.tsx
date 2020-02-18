@@ -26,7 +26,7 @@ function TriviaResults ({ trivia, scoreSet }: TriviaResultsProps) {
         <h1>You scored {triviaScore} / {questions.length}</h1>
         <small>{triviaScore} points were added to your score</small> 
         <h2>{scoreMessage}</h2>
-        <Link to={'/trivia'} className="try-again">Try Again</Link>           
+        <Link to={'/trivia/new'} className="try-again">Try Again</Link>           
       </div>
       <div  className="questions">
         {questions.map((question, i) => {

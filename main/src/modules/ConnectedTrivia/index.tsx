@@ -6,10 +6,10 @@ import { AppState, TriviaSettings } from '../../store/types';
 import { Trivia } from "../../store/types";
 import { triviaQuestionAnswer, triviaFetchRequested } from '../../store/actions/trivia';
 import { TriviaAction } from '../../store/actions/trivia/types';
-import { BaseAction } from '../../store/actions/types';
 
 export interface TriviaProps {
   trivia: Trivia,
+  fetchNew?: boolean,
   triviaQuestionAnswer: (questionId: number, answer: string) => void,
   triviaFetchRequested: (settings: TriviaSettings) => void,
 }
@@ -20,7 +20,7 @@ function mapStateToProps({ trivia }: AppState) {
   };
 }
 
-function mapDispatchToProps (dispatch: Dispatch<BaseAction>) {
+function mapDispatchToProps (dispatch: Dispatch<TriviaAction>) {
   return {
     triviaQuestionAnswer: (questionId: number, answer: string) => dispatch( triviaQuestionAnswer(questionId, answer) ),
     triviaFetchRequested: (settings: TriviaSettings) => dispatch( triviaFetchRequested(settings) ),
