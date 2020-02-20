@@ -7,23 +7,21 @@ import { usernameSet } from '../../store/actions/user';
 import { BaseAction } from '../../store/actions/types';
 
 export interface UserInputProps {
-  username: string,
-  setUsername: (name: string) => void,
+    username: string;
+    setUsername: (name: string) => void;
 }
 
 function mapStateToProps({ user: { username } }: AppState) {
-  return {
-    username,
-  };
+    return {
+        username,
+    };
 }
 
-function mapDispatchToProps (dispatch: Dispatch<BaseAction>) {
-  return {
-    setUsername: (name: string) => dispatch( usernameSet(name) ),
-  }
+function mapDispatchToProps(dispatch: Dispatch<BaseAction>) {
+    return {
+        setUsername: (name: string) => dispatch(usernameSet(name)),
+    };
 }
 
-export default (UserInputComponent: React.FunctionComponent<UserInputProps>) => connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(UserInputComponent);
+export default (UserInputComponent: React.FunctionComponent<UserInputProps>) =>
+    connect(mapStateToProps, mapDispatchToProps)(UserInputComponent);

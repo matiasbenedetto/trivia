@@ -1,17 +1,16 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { connect } from 'react-redux';
 
 import { AppState, UserState } from '../../store/types';
 
-
 export interface HomeProps {
-  user: UserState;
+    user: UserState;
 }
 
 function mapStateToProps({ user }: AppState) {
-  return {
-    user,
-  };
+    return {
+        user,
+    };
 }
 
 export default (HomeComponent: React.FunctionComponent<HomeProps>) => connect(mapStateToProps)(HomeComponent);
