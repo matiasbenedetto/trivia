@@ -2,13 +2,12 @@ import { BaseAction, actionTypes } from '../../actions/types';
 import { Trivia } from '../../types';
 import { TriviaAction } from '../../actions/trivia/types';
 
-const initialState = {
+export const initialState = {
     loading: false,
     difficulty: '',
     type: '',
     questions: [],
-    questionsCount: 0,
-    questionsAnswered: 0,
+    error: '',
 };
 
 export function triviaReducer(trivia: Trivia = initialState, action: TriviaAction): Trivia {
@@ -32,6 +31,7 @@ export function triviaReducer(trivia: Trivia = initialState, action: TriviaActio
             return {
                 ...trivia,
                 loading: false,
+                error: action.payload,
             };
 
         case actionTypes.TRIVIA_QUESTION_ANSWER:

@@ -21,8 +21,7 @@ export interface Trivia {
     difficulty: string;
     type: string;
     questions: TriviaQuestion[];
-    questionsCount: number;
-    questionsAnswered: number;
+    error: string;
 }
 
 export interface UserState {

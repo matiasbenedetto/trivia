@@ -3,7 +3,7 @@ import { UserState } from '../../types';
 import { operate } from './utils';
 import { UserAction } from '../../actions/user/types';
 
-const initialState = {
+export const initialState = {
     username: '',
     score: 0,
 };
