@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { storeTypes } from 'trivia-main';
 import Card from '../Card';
-import { View, Text, Button, TextInput } from 'react-native';
+import { View, Text, Button, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 
 
 interface QuestionProps {
@@ -26,17 +26,21 @@ function Question ({question, questionId, onAnswerQuestion}: QuestionProps) {
   }
 
   return (
-    <View>
-      <Text>{question.category}</Text>
+    <View style={styles.question}>
+      <Text style={styles.category}>{question.category}</Text>
       <Card>
-        <Text>{question.text}</Text>
+        <Text style={styles.questionText}>{question.text}</Text>
       </Card>
       <View>
         {question.type === 'boolean'
           ? (
-            <View>
-              <Button title="True" onPress={() => handleBooelanAnswer('True')} />
-              <Button title="False" onPress={() => handleBooelanAnswer('False')} />
+            <View style={styles.booleanButtons}>
+              <TouchableOpacity style={[styles.booleanButton, styles.true]} onPress={() => handleBooelanAnswer('True')}>
+                <Text style={styles.booleanButtonText}>True</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={[styles.booleanButton, styles.false]} onPress={() => handleBooelanAnswer('False')}>
+                <Text style={styles.booleanButtonText}>False</Text>
+              </TouchableOpacity>
             </View>
           ) : (
             <View>
@@ -55,3 +59,47 @@ function Question ({question, questionId, onAnswerQuestion}: QuestionProps) {
 }
 
 export default Question;
+
+const styles = StyleSheet.create({
+  question: {
+    padding: 20,
+  },
+  category: {
+    fontSize: 20,
+    textAlign: "center",
+    textDecorationLine: 'underline',
+    marginBottom: 15,
+  },
+  questionText: {
+    fontSize: 25,
+    textAlign: "center",
+  },
+  booleanButtons: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  booleanButton: {
+    height: 50,
+    color: 'white',
+    flex: 1,
+    borderRadius: 5,
+    padding: 10,
+  },
+  true: {
+    backgroundColor: 'blue',
+    marginRight: 10,
+  },
+  false: {
+    backgroundColor: 'orangered',
+    marginLeft: 10,
+  },
+  booleanButtonText: {
+    textAlign: 'center',
+    color: 'white',
+    fontSize: 20,
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
+  }
+});

@@ -1,14 +1,14 @@
 import React, { Fragment, useEffect } from 'react';
 import { ConnectedTriviaResults, TriviaResultsProps, constants } from 'trivia-main';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, StyleSheet, ScrollView } from 'react-native';
 
 
 interface TriviaResultsNativeProps extends TriviaResultsProps {
   navigation: any;
 }
 
-const Correct = () => (<Text>✔</Text>);
-const Inorrect = () => (<Text>❌</Text>);
+const Correct = () => (<Text style={styles.mark}>✔</Text>);
+const Inorrect = () => (<Text style={styles.mark}>❌</Text>);
 
 function TriviaResults ({ trivia, scoreSet, getScoreMessage, triviaFetchRequested, navigation }: TriviaResultsNativeProps) {
   const { questions } = trivia;
@@ -27,34 +27,74 @@ function TriviaResults ({ trivia, scoreSet, getScoreMessage, triviaFetchRequeste
   }
 
   return (
-    <View>
+    <ScrollView style={styles.triviaResults}>
       <View>
-        <Text>You scored {triviaScore} / {questions.length}</Text>
-        <Text>{triviaScore} points were added to your score</Text> 
-        <Text>{scoreMessage}</Text>
+        <Text style={styles.score}>You scored {triviaScore} / {questions.length}</Text>
+        <Text style={styles.scoreAdded}>{triviaScore} points were added to your score</Text> 
+        <Text style={styles.scoreMessage}>{scoreMessage}</Text>
         <Button
           title="Try Again"
           onPress={() => (handleTryAgain())}
         />
       </View>
-      <View>
+      <View style={styles.results}>
         {questions.map((question, i) => {
           const isCorrect = question.correctAswer === question.userAnswer;
           return (
-            <Fragment key={i}>
+            <View style={styles.result} key={i}>
               <View>
                 {isCorrect ? <Correct /> : <Inorrect/>}
               </View>
               <View>
-                <Text>{question.text}</Text>
-                <Text>Your Answer: {question.userAnswer}</Text>
+                <Text style={styles.question}>{question.text}</Text>
+                <Text style={styles.answer}>Your Answer: {question.userAnswer}</Text>
               </View>
-            </Fragment>
+            </View>
           )
         })}
       </View>
-    </View>
+    </ScrollView>
   )
 }
 
 export default ConnectedTriviaResults(TriviaResults);
+
+const styles = StyleSheet.create({
+  triviaResults: {
+    padding: 20,
+  },
+  score: {
+    textAlign: 'center',
+    fontSize: 30,
+    fontWeight: 'bold',
+  },
+  scoreAdded: {
+    textAlign: 'center',
+    fontSize: 20,
+    marginBottom: 20,
+  },
+  scoreMessage: {
+    textAlign: 'center',
+    fontStyle: 'italic',
+    marginBottom: 10,
+  },
+  results: {
+    marginTop: 30,
+    marginBottom: 30,
+  },
+  result: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  mark:{
+    fontSize: 20,
+    marginEnd: 10,
+  },
+  question: {
+    fontWeight: 'bold',
+    maxWidth: '90%',
+  },
+  answer: {
+    marginBottom: 20,
+  }
+});

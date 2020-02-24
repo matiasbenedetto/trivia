@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { constants, ConnectedTrivia, TriviaProps  } from 'trivia-main';
 import Question from '../Question';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
+import Loading from './Loading';
 
 interface TriviaNativeProps extends TriviaProps {
   navigation: any;
@@ -17,17 +18,13 @@ function Trivia({ trivia, triviaQuestionAnswer, triviaFetchRequested, route, nav
   if (fetchNew) {
     triviaFetchRequested(constants.TRIVIA_DEFAULT_SETTINGS);
     return (
-      <View>
-        <Text>Fetching Trivia...</Text>
-      </View>
+      <Loading text="Fetching Trivia..." />
     )
   } 
 
   if (loading) {
     return (
-      <View>
-        <Text>Loading Trivia...</Text>
-      </View>
+      <Loading text="Loading Trivia..." />
     );
   }
 
