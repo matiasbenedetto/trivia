@@ -47,7 +47,7 @@ For both Web and Native the project relays on `npm link` to link the dependency 
 - Add more tests
 - Add more emojis :)
 
-# Developed and tested with
+## Developed and tested with
 - Node 12.13.1
 - NPM 6.13.7
 - Native app tested on Android 9
