@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { constants, ConnectedTrivia, TriviaProps  } from 'trivia-main';
 import Question from '../Question';
-import { View } from 'react-native';
+import { View, BackHandler } from 'react-native';
 import Loading from './Loading';
+import { useFocusEffect } from '@react-navigation/native';
 
 interface TriviaNativeProps extends TriviaProps {
   navigation: any;
@@ -27,6 +28,18 @@ function Trivia({ trivia, triviaQuestionAnswer, triviaFetchRequested, route, nav
       <Loading text="Loading Trivia..." />
     );
   }
+
+  useFocusEffect(
+    React.useCallback(() => {
+      const onBackPress = () => {
+        navigation.push('Home');
+        return true;
+      };
+      BackHandler.addEventListener('hardwareBackPress', onBackPress);
+      return () =>
+        BackHandler.removeEventListener('hardwareBackPress', onBackPress);
+    }, [])
+  );
 
   const onAnswerQuestion = (id: number, answer: string) => {
     const nextId = selectedQuestionId + 1;

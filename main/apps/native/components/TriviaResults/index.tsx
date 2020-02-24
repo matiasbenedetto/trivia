@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import { ConnectedTriviaResults, TriviaResultsProps, constants } from 'trivia-main';
-import { View, Text, Button, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, Button, StyleSheet, ScrollView, BackHandler } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
 
 
 interface TriviaResultsNativeProps extends TriviaResultsProps {
@@ -25,6 +26,18 @@ function TriviaResults ({ trivia, scoreSet, getScoreMessage, triviaFetchRequeste
     triviaFetchRequested(constants.TRIVIA_DEFAULT_SETTINGS);
     navigation.push("Trivia");
   }
+
+  useFocusEffect(
+    React.useCallback(() => {
+      const onBackPress = () => {
+        navigation.push('Home');
+        return true;
+      };
+      BackHandler.addEventListener('hardwareBackPress', onBackPress);
+      return () =>
+        BackHandler.removeEventListener('hardwareBackPress', onBackPress);
+    }, [])
+  );
 
   return (
     <ScrollView style={styles.triviaResults}>
