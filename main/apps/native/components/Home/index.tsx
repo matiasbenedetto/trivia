@@ -10,10 +10,11 @@ interface HomeNativeProps extends HomeProps {
 function Home({ user, navigation }: HomeNativeProps) {
   return(
     <View style={styles.home}>
+      <Text style={styles.thinking}>🤔</Text>
       <Text style={styles.h1}>Welcome {user.username} to the trivia challenge!</Text>
       <UserInput />
-      <Text style={styles.h2}>Yo will be presented with 10 True of False questions.</Text>
-      <Text style={styles.h2}>Can you score 100%?</Text>
+      <Text style={styles.h2}>You will be presented with 10 True of False questions.</Text>
+      <Text style={styles.h2}>🔥 Can you score 100%? 🔥</Text>
       <Button
         title="Begin !"
         onPress={() => navigation.push('Trivia')}
@@ -27,6 +28,10 @@ export default ConnectedHome(Home);
 const styles = StyleSheet.create({
   home: {
     padding: 30,
+  },
+  thinking: {
+    textAlign:'center',
+    fontSize: 50,
   },
   h1: {
     fontSize: 30,

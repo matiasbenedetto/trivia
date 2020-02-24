@@ -29,9 +29,9 @@ function TriviaResults ({ trivia, scoreSet, getScoreMessage, triviaFetchRequeste
   return (
     <ScrollView style={styles.triviaResults}>
       <View>
-        <Text style={styles.score}>You scored {triviaScore} / {questions.length}</Text>
+        <Text style={styles.score}>You scored {triviaScore}/{questions.length} {scoreMessage.face}</Text>
         <Text style={styles.scoreAdded}>{triviaScore} points were added to your score</Text> 
-        <Text style={styles.scoreMessage}>{scoreMessage}</Text>
+        <Text style={styles.scoreMessage}>{scoreMessage.text}</Text>
         <Button
           title="Try Again"
           onPress={() => (handleTryAgain())}

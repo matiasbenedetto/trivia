@@ -2,7 +2,7 @@ import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
-import getScoreMessage from './utils';
+import getScoreMessage, { ScoreMessage } from './utils';
 import { AppState, TriviaSettings } from '../../store/types';
 import { Trivia } from '../../store/types';
 import { scoreSet } from '../../store/actions/user';
@@ -14,7 +14,7 @@ export interface TriviaResultsProps {
     trivia: Trivia;
     scoreSet: (operation: ScoreOperator, points: number) => void;
     triviaFetchRequested: (settings: TriviaSettings) => void;
-    getScoreMessage: (score: number) => string;
+    getScoreMessage: (score: number) => ScoreMessage;
 }
 
 function mapStateToProps({ trivia, user }: AppState) {

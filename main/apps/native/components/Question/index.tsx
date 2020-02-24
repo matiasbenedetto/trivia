@@ -27,7 +27,7 @@ function Question ({question, questionId, onAnswerQuestion}: QuestionProps) {
 
   return (
     <View style={styles.question}>
-      <Text style={styles.category}>{question.category}</Text>
+      <Text style={styles.category}>👇 {question.category} 👇</Text>
       <Card>
         <Text style={styles.questionText}>{question.text}</Text>
       </Card>
@@ -36,10 +36,10 @@ function Question ({question, questionId, onAnswerQuestion}: QuestionProps) {
           ? (
             <View style={styles.booleanButtons}>
               <TouchableOpacity style={[styles.booleanButton, styles.true]} onPress={() => handleBooelanAnswer('True')}>
-                <Text style={styles.booleanButtonText}>True</Text>
+                <Text style={styles.booleanButtonText}>👍 True</Text>
               </TouchableOpacity>
               <TouchableOpacity style={[styles.booleanButton, styles.false]} onPress={() => handleBooelanAnswer('False')}>
-                <Text style={styles.booleanButtonText}>False</Text>
+                <Text style={styles.booleanButtonText}>False 👎</Text>
               </TouchableOpacity>
             </View>
           ) : (
@@ -65,14 +65,14 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   category: {
-    fontSize: 20,
+    fontSize: 15,
     textAlign: "center",
-    textDecorationLine: 'underline',
     marginBottom: 15,
   },
   questionText: {
-    fontSize: 25,
-    textAlign: "center",
+    fontSize: 30,
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
   booleanButtons: {
     flex: 1,

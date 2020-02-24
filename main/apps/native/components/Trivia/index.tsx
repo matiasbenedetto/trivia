@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { constants, ConnectedTrivia, TriviaProps  } from 'trivia-main';
 import Question from '../Question';
-import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
+import { View } from 'react-native';
 import Loading from './Loading';
 
 interface TriviaNativeProps extends TriviaProps {
