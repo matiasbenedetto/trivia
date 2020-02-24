@@ -2,6 +2,9 @@
 By **Matias Benedetto** <matias.benedetto@gmail.com>
 
 Trivia Game app for web and mobile built with **TypeScript, React, React Native, Redux, and Saga**.
+
+You can use the web version here: https://triviagame.matiasbenedetto.now.sh/
+
 ![Screenshots](https://user-images.githubusercontent.com/1310626/75196164-2e04af00-573a-11ea-933c-78978b56076d.png)
 
 ## Architecture:
