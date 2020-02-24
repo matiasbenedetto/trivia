@@ -12,7 +12,7 @@ You can use the web version here: https://triviagame.matiasbenedetto.now.sh/
 The organization of the codebase was planned to have a large portion of the code shared between the web and native apps to avoid code repetition and make app development more efficient, maintainable and sustainable.
 
 ### Shared code
-The shared code that lives in `/main/src` contains all the logic and state management tasks and is re-utilized across both apps. All the common dependency packages for both platforms as `react` are listed in the `/main/package.json` file.
+The shared code that lives in `/main/src` contains all the logic, API data fetching and state management tasks and is re-utilized across both apps. All the common dependency packages for both platforms as `react` are listed in the `/main/package.json` file.
 
 ### Platform-specific code
 The code that lives in `/main/apps/web` and `/main/apps/native` is unique for each kind of platform. This code is related to the navigation and presentational parts of the apps that should be managed differently for each platform.
