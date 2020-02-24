@@ -1,6 +1,6 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import { ConnectedTriviaResults, TriviaResultsProps, constants } from 'trivia-main';
-import { View, Text, Button, StyleSheet, ScrollView, BackHandler } from 'react-native';
+import { View, Text, Button, ScrollView, BackHandler } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import styles from './styles';
 
@@ -19,17 +19,19 @@ function TriviaResults ({ trivia, scoreSet, getScoreMessage, triviaFetchRequeste
   ).length;
   const scoreMessage = getScoreMessage(triviaScore);
 
-  useEffect(()=>{
-    scoreSet('+', triviaScore);
-  });
-
   const handleTryAgain = () => {
     triviaFetchRequested(constants.TRIVIA_DEFAULT_SETTINGS);
     navigation.push("Trivia");
   }
 
   useFocusEffect(
-    React.useCallback(() => {
+    useCallback(() => {
+      scoreSet('+', triviaScore);
+    }, [])
+  );
+
+  useFocusEffect(
+    useCallback(() => {
       const onBackPress = () => {
         navigation.push('Home');
         return true;
