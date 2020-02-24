@@ -1,7 +1,7 @@
 .atribution-bar{
   border-top: 1px solid black;
-  display: grid;
-  grid-template-columns: min-content min-content 1fr;
+  display: flex;
+  flex-wrap: wrap;
   p{
     margin: 0;
     padding: 1rem;

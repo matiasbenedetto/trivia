@@ -30,21 +30,21 @@ function Trivia({ trivia, triviaQuestionAnswer, triviaFetchRequested, fetchNew }
     triviaFetchRequested(constants.TRIVIA_DEFAULT_SETTINGS);
     history.push('/trivia/0');
     return (<div><h1>Fetching New Trivia ...</h1></div>);
-  }else {
-    const selectedQuestion = trivia.questions[id];
-    if (!selectedQuestion) {
-      return (<Redirect to={'/'}/>);
-    }
-    return(
-      <div className="trivia">
-        <Question
-          questionId={id}
-          question={selectedQuestion}
-          onAnswerQuestion={onAnswerQuestion}
-        />
-      </div>
-    )
   }
+  
+  const selectedQuestion = trivia.questions[id];
+  if (!selectedQuestion) {
+    return (<Redirect to={'/'}/>);
+  }
+  return(
+    <div className="trivia">
+      <Question
+        questionId={id}
+        question={selectedQuestion}
+        onAnswerQuestion={onAnswerQuestion}
+      />
+    </div>
+  )
 }
 
 export default ConnectedTrivia(Trivia);

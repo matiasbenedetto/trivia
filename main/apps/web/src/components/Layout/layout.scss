@@ -2,6 +2,9 @@
   display: grid;
   grid-template-rows: min-content 4fr min-content;
   min-height: 100vh;
+  max-width: 100vw;
+  overflow: hidden;
+  flex-wrap: wrap;
 
   main {
     display: flex;
