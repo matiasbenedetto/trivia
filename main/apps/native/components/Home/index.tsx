@@ -3,7 +3,11 @@ import { View, Text, StyleSheet, Button, Alert } from 'react-native';
 import { ConnectedHome, HomeProps, ConnectedUserInput } from 'trivia-main';
 import UserInput from '../UserInput';
 
-function Home({ user }: HomeProps) {
+interface HomeNativeProps extends HomeProps {
+  navigation: any;
+}
+
+function Home({ user, navigation }: HomeNativeProps) {
   return(
     <View style={styles.home}>
       <Text style={styles.h1}>Welcome {user.username} to the trivia challenge!</Text>
@@ -11,8 +15,8 @@ function Home({ user }: HomeProps) {
       <Text style={styles.h2}>Yo will be presented with 10 True of False questions.</Text>
       <Text style={styles.h2}>Can you score 100%?</Text>
       <Button
-          title="Begin !"
-          onPress={() => Alert.alert('Hello trivia player')}
+        title="Begin !"
+        onPress={() => navigation.push('Trivia')}
       />
     </View>
   )

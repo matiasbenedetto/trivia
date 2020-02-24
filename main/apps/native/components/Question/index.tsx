@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { storeTypes } from 'trivia-main';
 import Card from '../Card';
-
-import './question.scss';
+import { View, Text, Button, TextInput } from 'react-native';
 
 
 interface QuestionProps {
@@ -14,8 +13,8 @@ interface QuestionProps {
 function Question ({question, questionId, onAnswerQuestion}: QuestionProps) {
   const [userAnswer, setUserAnswer] = useState<string>('');
 
-  const handleTextAnswerChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setUserAnswer(event.target.value);
+  const handleTextAnswerChange = (value: string) => {
+    setUserAnswer(value);
   }
 
   const handleBooelanAnswer = (answer: string) => {
@@ -27,31 +26,31 @@ function Question ({question, questionId, onAnswerQuestion}: QuestionProps) {
   }
 
   return (
-    <div className="question">
-      <h2>{question.category}</h2>
+    <View>
+      <Text>{question.category}</Text>
       <Card>
-        <h1>{question.text}</h1>
+        <Text>{question.text}</Text>
       </Card>
-      <div className="actions">
+      <View>
         {question.type === 'boolean'
           ? (
-            <div>
-              <button className="true" onClick={() => handleBooelanAnswer('True')}>True</button>
-              <button className="false" onClick={() => handleBooelanAnswer('False')}>False</button>
-            </div>
+            <View>
+              <Button title="True" onPress={() => handleBooelanAnswer('True')} />
+              <Button title="False" onPress={() => handleBooelanAnswer('False')} />
+            </View>
           ) : (
-            <div>
-              <input
+            <View>
+              <TextInput
                 placeholder="Answer ..."
-                onChange={handleTextAnswerChange}
+                onChangeText={handleTextAnswerChange}
                 value={userAnswer}
               />
-              <button onClick={handleQuestionAnswer}>Answer</button>
-            </div>
+              <Button title="Answer" onPress={handleQuestionAnswer} />
+            </View>
           )
         }
-      </div>
-    </div>
+      </View>
+    </View>
   )
 }
 

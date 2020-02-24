@@ -8,14 +8,16 @@ export const initialState = {
     type: '',
     questions: [],
     error: '',
+    fetchNew: true,
 };
 
-export function triviaReducer(trivia: Trivia = initialState, action: TriviaAction): Trivia {
+export default function triviaReducer(trivia: Trivia = initialState, action: TriviaAction): Trivia {
     switch (action.type) {
         case actionTypes.TRIVIA_FETCH_REQUESTED:
             return {
                 ...trivia,
                 loading: true,
+                fetchNew: false,
             };
 
         case actionTypes.TRIVIA_FETCH_SUCCEEDED:
@@ -23,8 +25,9 @@ export function triviaReducer(trivia: Trivia = initialState, action: TriviaActio
             return {
                 ...trivia,
                 ...settings,
-                questions,
+                questions: [...questions],
                 loading: false,
+                fetchNew: false,
             };
 
         case actionTypes.TRIVIA_FETCH_FAILED:
@@ -32,6 +35,7 @@ export function triviaReducer(trivia: Trivia = initialState, action: TriviaActio
                 ...trivia,
                 loading: false,
                 error: action.payload,
+                fetchNew: false,
             };
 
         case actionTypes.TRIVIA_QUESTION_ANSWER:

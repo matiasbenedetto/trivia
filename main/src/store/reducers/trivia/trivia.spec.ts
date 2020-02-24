@@ -1,4 +1,4 @@
-import { triviaReducer, initialState } from './index';
+import triviaReducer, { initialState } from './index';
 import { actionTypes } from '../../actions/types';
 import {
     TriviaFetchFailed,
@@ -34,6 +34,7 @@ const mockStateWithQuestions: Trivia = {
     questions: mockTriviaQuestions,
     loading: false,
     error: '',
+    fetchNew: false,
 };
 
 const mockTriviaFetchSucceededAction: TriviaFetchSucceeded = {

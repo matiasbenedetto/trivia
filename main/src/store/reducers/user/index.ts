@@ -8,7 +8,7 @@ export const initialState = {
     score: 0,
 };
 
-export const userReducer = (user: UserState = initialState, action: UserAction) => {
+function userReducer(user: UserState = initialState, action: UserAction) {
     switch (action.type) {
         case actionTypes.USER_USERNAME_SET:
             return {
@@ -27,3 +27,5 @@ export const userReducer = (user: UserState = initialState, action: UserAction) 
             return user;
     }
 };
+
+export default userReducer;

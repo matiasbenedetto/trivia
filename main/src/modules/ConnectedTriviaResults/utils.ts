@@ -5,7 +5,7 @@ enum scoreMessage {
   EXCELLENT = 'Excellent work!, keep trying',
 }
 
-export function getScoreMessage(score: number): scoreMessage{
+function getScoreMessage(score: number): scoreMessage{
   switch(score){
     case 0:
     case 1:
@@ -26,3 +26,5 @@ export function getScoreMessage(score: number): scoreMessage{
       return scoreMessage.GOOD;
   }
 }
+
+export default getScoreMessage;

@@ -1,4 +1,4 @@
-import { userReducer, initialState } from './index';
+import userReducer, { initialState } from './index';
 import { actionTypes } from '../../actions/types';
 import { UserUsernameSet, UserScoreSet } from '../../actions/user/types';
 

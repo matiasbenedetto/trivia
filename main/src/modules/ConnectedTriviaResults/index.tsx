@@ -2,14 +2,19 @@ import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
-import { AppState, TriviaSettings, UserState } from '../../store/types';
+import getScoreMessage from './utils';
+import { AppState, TriviaSettings } from '../../store/types';
 import { Trivia } from '../../store/types';
 import { scoreSet } from '../../store/actions/user';
-import { UserScoreSet, ScoreOperator } from '../../store/actions/user/types';
+import { ScoreOperator } from '../../store/actions/user/types';
+import { triviaFetchRequested } from '../../store/actions/trivia';
+import { BaseAction } from '../../store/actions/types';
 
 export interface TriviaResultsProps {
     trivia: Trivia;
     scoreSet: (operation: ScoreOperator, points: number) => void;
+    triviaFetchRequested: (settings: TriviaSettings) => void;
+    getScoreMessage: (score: number) => string;
 }
 
 function mapStateToProps({ trivia, user }: AppState) {
@@ -18,9 +23,11 @@ function mapStateToProps({ trivia, user }: AppState) {
     };
 }
 
-function mapDispatchToProps(dispatch: Dispatch<UserScoreSet>) {
+function mapDispatchToProps(dispatch: Dispatch<BaseAction>) {
     return {
         scoreSet: (operation: ScoreOperator, points: number) => dispatch(scoreSet(operation, points)),
+        triviaFetchRequested: (settings: TriviaSettings) => dispatch(triviaFetchRequested(settings)),
+        getScoreMessage,
     };
 }
 

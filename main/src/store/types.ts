@@ -22,6 +22,7 @@ export interface Trivia {
     type: string;
     questions: TriviaQuestion[];
     error: string;
+    fetchNew: boolean;
 }
 
 export interface UserState {

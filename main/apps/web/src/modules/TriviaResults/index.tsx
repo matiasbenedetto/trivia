@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ConnectedTriviaResults, TriviaResultsProps } from 'trivia-main';
-import { getScoreMessage } from './utils';
 
 import './triviaResults.scss';
 
@@ -9,7 +8,7 @@ import './triviaResults.scss';
 const Correct = () => (<span className="correct" role="img" aria-label="Correct">✔</span>);
 const Inorrect = () => (<span className="incorrect" role="img" aria-label="Inorrect">❌</span>);
 
-function TriviaResults ({ trivia, scoreSet }: TriviaResultsProps) {
+function TriviaResults ({ trivia, scoreSet, getScoreMessage }: TriviaResultsProps) {
   const { questions } = trivia;
   const triviaScore: number = questions.filter(
     q => q.correctAswer === q.userAnswer
