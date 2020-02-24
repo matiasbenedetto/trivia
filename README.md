@@ -19,32 +19,23 @@ The specific package dependencies for web (as react-router react-dom, node-sass)
 For both Web and Native the project relays on `npm link` to link the dependency of the main module. `npm link` creates a symlink between the main module and the platform module's `node_modules` folder, so the developer can work with all the tooling working as Hot-Reloading and IntelliSense. Even though for react-native `npm link` is not enough because the Metro bundler is not able to follow symlinks so I've should add a specific config for the bundler that lives in `main/apps/native/metro.config.js`.
 
 ## Main App (shared)
-Path: /main/src
-Tech stack: TypeScript, Redux, React-Redux, Redux-Saga, Jest, Axios.
-### Commands
-**buid:** `npm run build`
-**watch:** `npm run watch`
-**test:** `npm run test`
+- Path: /main/src
+- Tech stack: TypeScript, Redux, React-Redux, Redux-Saga, Jest, Axios.
+- **buid:** `npm run build`
+- **watch:** `npm run watch`
+- **test:** `npm run test`
 
 ## Web App
-Based on: create-react-app
-
-Path: `/main/apps/web`
-
-Tech stack: React, React DOM, React-Router, Node-Sass. 
-
-### Commands:
-**start:** `npm run start`
+- Based on: create-react-app
+- Path: `/main/apps/web`
+- Tech stack: React, React DOM, React-Router, Node-Sass. 
+- **start:** `npm run start`
 
 ## Mobile App
-Based on: Expo CLI
-
-Path: `/main/apps/native`
-
-Tech stack: React, React Native, React-Navigation.
-
-### Commands:
-**start:** `npm run start`
+- Based on: Expo CLI
+- Path: `/main/apps/native`
+- Tech stack: React, React Native, React-Navigation.
+- **start:** `npm run start`
 
 
 ## TODO:
