@@ -3,10 +3,17 @@ import { View, Text, Button, BackHandler } from 'react-native';
 import { ConnectedHome, HomeProps } from 'trivia-main';
 import UserInput from '../UserInput';
 import { useFocusEffect } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../../Navigator';
 import styles from './styles';
 
+
+type HomeNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'Home'
+>;
 interface HomeNativeProps extends HomeProps {
-  navigation: any;
+  navigation: HomeNavigationProp;
 }
 
 function Home({ user, navigation }: HomeNativeProps) {

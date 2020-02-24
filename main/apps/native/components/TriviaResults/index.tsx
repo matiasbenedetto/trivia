@@ -2,11 +2,17 @@ import React, { useCallback } from 'react';
 import { ConnectedTriviaResults, TriviaResultsProps, constants } from 'trivia-main';
 import { View, Text, Button, ScrollView, BackHandler } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../../Navigator';
 import styles from './styles';
 
+type TriviaResultsNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'TriviaResults'
+>;
 
 interface TriviaResultsNativeProps extends TriviaResultsProps {
-  navigation: any;
+  navigation: TriviaResultsNavigationProp;
 }
 
 const Correct = () => (<Text style={styles.mark}>✔</Text>);
