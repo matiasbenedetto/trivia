@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
+import styles from './styles';
 
 function AtributionBar () {
   return (
@@ -11,19 +12,3 @@ function AtributionBar () {
 }
 
 export default AtributionBar;
-
-const styles = StyleSheet.create({
-  atributionBar: {
-    display: 'flex',
-    flexDirection: 'row',
-    borderTopWidth: 1,
-    borderTopColor: 'black',
-  },
-  year: {
-    padding: 10,
-    borderRightWidth: 1,
-  },
-  name: {
-    padding: 10,
-  }
-});

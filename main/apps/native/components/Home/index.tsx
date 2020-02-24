@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button, BackHandler } from 'react-native';
+import { View, Text, Button, BackHandler } from 'react-native';
 import { ConnectedHome, HomeProps } from 'trivia-main';
 import UserInput from '../UserInput';
 import { useFocusEffect } from '@react-navigation/native';
+import styles from './styles';
 
 interface HomeNativeProps extends HomeProps {
   navigation: any;
@@ -38,25 +39,3 @@ function Home({ user, navigation }: HomeNativeProps) {
 }
 
 export default ConnectedHome(Home);
-
-const styles = StyleSheet.create({
-  home: {
-    padding: 30,
-  },
-  thinking: {
-    textAlign:'center',
-    fontSize: 50,
-  },
-  h1: {
-    fontSize: 30,
-    fontWeight: "bold",
-    textAlign: "center",
-    marginBottom: 20,
-  },
-  h2: {
-    fontSize: 20,
-    fontWeight: "bold",
-    textAlign: "center",
-    marginBottom: 10,
-  }
-});

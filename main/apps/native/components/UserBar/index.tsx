@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 import { ConnectedUserBar, UserBarProps } from 'trivia-main';
+import styles from './styles';
 
 
 function UserBar({ username, score }: UserBarProps) {
@@ -17,22 +18,3 @@ function UserBar({ username, score }: UserBarProps) {
 };
 
 export default ConnectedUserBar(UserBar);
-
-const styles = StyleSheet.create({
-  userBar: {
-    display: 'flex',
-    flexDirection: 'row',
-  },
-  username: {
-    borderRightColor: 'black',
-    borderRightWidth: 1,
-    paddingTop: 20,
-    paddingBottom: 20,
-    paddingRight: 20,
-  },
-  score: {
-    paddingTop: 20,
-    paddingBottom: 20,
-    paddingLeft: 20,
-  },
-});

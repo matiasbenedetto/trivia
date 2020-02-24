@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from 'react';
 import { ConnectedTriviaResults, TriviaResultsProps, constants } from 'trivia-main';
 import { View, Text, Button, StyleSheet, ScrollView, BackHandler } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
+import styles from './styles';
 
 
 interface TriviaResultsNativeProps extends TriviaResultsProps {
@@ -71,43 +72,3 @@ function TriviaResults ({ trivia, scoreSet, getScoreMessage, triviaFetchRequeste
 }
 
 export default ConnectedTriviaResults(TriviaResults);
-
-const styles = StyleSheet.create({
-  triviaResults: {
-    padding: 20,
-  },
-  score: {
-    textAlign: 'center',
-    fontSize: 30,
-    fontWeight: 'bold',
-  },
-  scoreAdded: {
-    textAlign: 'center',
-    fontSize: 20,
-    marginBottom: 20,
-  },
-  scoreMessage: {
-    textAlign: 'center',
-    fontStyle: 'italic',
-    marginBottom: 10,
-  },
-  results: {
-    marginTop: 30,
-    marginBottom: 30,
-  },
-  result: {
-    display: 'flex',
-    flexDirection: 'row',
-  },
-  mark:{
-    fontSize: 20,
-    marginEnd: 10,
-  },
-  question: {
-    fontWeight: 'bold',
-    maxWidth: '90%',
-  },
-  answer: {
-    marginBottom: 20,
-  }
-});

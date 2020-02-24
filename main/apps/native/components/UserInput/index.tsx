@@ -1,7 +1,7 @@
 import React from 'react';
 import { ConnectedUserInput, UserInputProps } from 'trivia-main';
-import { View, TextInput, StyleSheet } from 'react-native';
-
+import { View, TextInput } from 'react-native';
+import styles from './styles';
 
 function UserInput({username, setUsername} :UserInputProps) {
 
@@ -22,15 +22,3 @@ function UserInput({username, setUsername} :UserInputProps) {
 }
 
 export default ConnectedUserInput(UserInput);
-
-const styles = StyleSheet.create({
-  input: {
-    fontSize: 30,
-    fontWeight: "bold",
-    textAlign: "center",
-    borderColor: '#333333',
-    borderRadius: 5,
-    borderWidth: 1,
-    marginBottom: 20,
-  },
-});
