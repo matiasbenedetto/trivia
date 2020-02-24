@@ -7,7 +7,7 @@ node_modules
 /coverage
 
 # production
-*/build
+**/build
 
 # misc
 .DS_Store
@@ -22,3 +22,6 @@ yarn-error.log*
 
 # TypeScript
 tsconfig.tsbuildinfo
+
+#Now
+.now
