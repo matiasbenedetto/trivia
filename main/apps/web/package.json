@@ -18,10 +18,9 @@
     "react-scripts": "3.3.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "eject": "react-scripts eject",
-    "dev": "npm link ../.. && npm run start"
+    "dev": "npm link ../.. && npm run start",
+    "build": "npm link ../.. && react-scripts build",
+    "eject": "npm link ../.. && react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
