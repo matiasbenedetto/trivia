@@ -7,8 +7,6 @@ import AtributionBar from './components/AtributionBar';
 import Navigator from './Navigator';
 
 
-
-
 export default function App() {
   return (
     <NavigationContainer>
