@@ -15,7 +15,7 @@ function Home({ user }: HomeProps) {
       <UserInput />
 
       <h3>Yo will be presented with 10 True of False questions.</h3>
-      <h2>Can you score 100%?</h2>
+      <h2><Emoji char="🔥" label="fire"/> Can you score 100%? <Emoji char="🔥" label="fire"/></h2>
 
       <Link to="/trivia/new">
         <button>Begin! <Emoji char="💪" label="challenge" /></button>
