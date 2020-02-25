@@ -49,6 +49,7 @@ For both Web and Native the project relays on `npm link` to link the dependency 
 
 ## TODO:
 - Add more tests
+- Add more css styles
 - Add more emojis :)
 
 ## Developed and tested with
