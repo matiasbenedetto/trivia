@@ -5,10 +5,10 @@ Trivia Game app for web and mobile built with **TypeScript, React, React Native,
 
 You can use the web version here: https://triviagame.matiasbenedetto.now.sh/
 
-- Screenshots of the native app working on android:
+Screenshots of the native app working on android:
 ![native screenshots](https://user-images.githubusercontent.com/1310626/75196164-2e04af00-573a-11ea-933c-78978b56076d.png)
 
-- Screenshot of the web app on firefox:
+Screenshot of the web app on firefox:
 ![web screenshot](https://user-images.githubusercontent.com/1310626/75263290-88e6e680-57cc-11ea-822f-0175320e9644.png)
 
 ## Architecture:
