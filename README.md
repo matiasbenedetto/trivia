@@ -2,6 +2,9 @@
 By **Matias Benedetto** <matias.benedetto@gmail.com>
 
 Trivia Game app for web and mobile built with **TypeScript, React, React Native, Redux, and Saga**.
+
+You can use the web version here: https://triviagame.matiasbenedetto.now.sh/
+
 ![Screenshots](https://user-images.githubusercontent.com/1310626/75196164-2e04af00-573a-11ea-933c-78978b56076d.png)
 
 ## Architecture:
@@ -9,7 +12,7 @@ Trivia Game app for web and mobile built with **TypeScript, React, React Native,
 The organization of the codebase was planned to have a large portion of the code shared between the web and native apps to avoid code repetition and make app development more efficient, maintainable and sustainable.
 
 ### Shared code
-The shared code that lives in `/main/src` contains all the logic and state management tasks and is re-utilized across both apps. All the common dependency packages for both platforms as `react` are listed in the `/main/package.json` file.
+The shared code that lives in `/main/src` contains all the logic, API data fetching, connected components and state management tasks and is re-utilized across both apps. All the common dependency packages for both platforms as `react` are listed in the `/main/package.json` file.
 
 ### Platform-specific code
 The code that lives in `/main/apps/web` and `/main/apps/native` is unique for each kind of platform. This code is related to the navigation and presentational parts of the apps that should be managed differently for each platform.
@@ -44,7 +47,7 @@ For both Web and Native the project relays on `npm link` to link the dependency 
 - Add more tests
 - Add more emojis :)
 
-# Developed and tested with
+## Developed and tested with
 - Node 12.13.1
 - NPM 6.13.7
 - Native app tested on Android 9
