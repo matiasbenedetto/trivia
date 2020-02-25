@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { storeTypes } from 'trivia-main';
 import Card from '../Card';
+import Emoji from '../../components/Emoji';
 
 import './question.scss';
 
@@ -28,7 +29,7 @@ function Question ({question, questionId, onAnswerQuestion}: QuestionProps) {
 
   return (
     <div className="question">
-      <h2>{question.category}</h2>
+      <h2><Emoji char="👇" label="pointing finger" /> {question.category} <Emoji char="👇" label="pointing finger" /></h2>
       <Card>
         <h1>{question.text}</h1>
       </Card>
@@ -36,8 +37,8 @@ function Question ({question, questionId, onAnswerQuestion}: QuestionProps) {
         {question.type === 'boolean'
           ? (
             <div>
-              <button className="true" onClick={() => handleBooelanAnswer('True')}>True</button>
-              <button className="false" onClick={() => handleBooelanAnswer('False')}>False</button>
+              <button className="true" onClick={() => handleBooelanAnswer('True')}><Emoji char="👍" label="True"/> True</button>
+              <button className="false" onClick={() => handleBooelanAnswer('False')}><Emoji char="👎" label="False"/> False</button>
             </div>
           ) : (
             <div>

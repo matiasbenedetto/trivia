@@ -1,0 +1,16 @@
+.loading{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-align: center;
+  justify-content: center;
+
+  h1{
+    font-size: 6rem;
+    margin: 0;
+  }
+
+  h2{
+    font-size: 3rem;
+  }
+}
