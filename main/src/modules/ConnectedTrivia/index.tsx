@@ -9,7 +9,6 @@ import { TriviaAction } from '../../store/actions/trivia/types';
 
 export interface TriviaProps {
     trivia: Trivia;
-    fetchNew?: boolean;
     triviaQuestionAnswer: (questionId: number, answer: string) => void;
     triviaFetchRequested: (settings: TriviaSettings) => void;
 }

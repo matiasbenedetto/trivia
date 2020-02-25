@@ -15,10 +15,10 @@ const routes = (
     <Route exact path="/trivia/results">
       <TriviaResults />
     </Route>
-    <Route exact path="/trivia/new">
-      <Trivia fetchNew={true} />
-    </Route>
     <Route exact path="/trivia/:questionId">
+      <Trivia />
+    </Route>
+    <Route exact path="/trivia/">
       <Trivia />
     </Route>
     <Route>

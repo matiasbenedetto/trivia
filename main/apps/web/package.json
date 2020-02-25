@@ -18,7 +18,7 @@
     "react-scripts": "3.3.1"
   },
   "scripts": {
-    "dev": "npm link ../.. && npm run start",
+    "start": "npm link ../.. && react-scripts start",
     "build": "npm link ../.. && react-scripts build",
     "eject": "npm link ../.. && react-scripts eject"
   },

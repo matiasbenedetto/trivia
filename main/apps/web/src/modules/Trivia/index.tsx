@@ -6,10 +6,10 @@ import Question from '../../components/Question';
 import './trivia.scss';
 
 
-function Trivia({ trivia, triviaQuestionAnswer, triviaFetchRequested, fetchNew }: TriviaProps) {
+function Trivia({ trivia, triviaQuestionAnswer, triviaFetchRequested }: TriviaProps) {
   const { questionId } = useParams();
   const history = useHistory();
-  const { loading, questions } = trivia;
+  const { loading, questions, fetchNew } = trivia;
   const id: number = Number(questionId) || 0;
 
   if (loading){
@@ -31,7 +31,7 @@ function Trivia({ trivia, triviaQuestionAnswer, triviaFetchRequested, fetchNew }
     history.push('/trivia/0');
     return (<div><h1>Fetching New Trivia ...</h1></div>);
   }
-  
+
   const selectedQuestion = trivia.questions[id];
   if (!selectedQuestion) {
     return (<Redirect to={'/'}/>);
