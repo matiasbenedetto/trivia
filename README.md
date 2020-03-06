@@ -7,6 +7,7 @@ You can use the web version here: https://triviagame.matiasbenedetto.now.sh/
 
 More details on my blog: http://mebenedetto.com/en/react-and-react-native-maximize-the-code-reusability/
 
+
 Screenshots of the native app running on android:
 ![native screenshots](https://user-images.githubusercontent.com/1310626/75196164-2e04af00-573a-11ea-933c-78978b56076d.png)
 
